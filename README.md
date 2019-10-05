@@ -16,5 +16,7 @@ you need to have go installed.
 then run
 
 ```bash
-go build
+go install
 ```
+
+if $GOBIN is in your path you should be able to use it straight away
