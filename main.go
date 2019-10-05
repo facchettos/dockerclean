@@ -42,6 +42,7 @@ func main() {
 	args := os.Args[1:]
 	networks := false
 	images := true
+	version := "1.40"
 	if len(args) != 0 {
 		if args[0] == "all" {
 			networks = true
@@ -54,9 +55,9 @@ func main() {
 			return
 		}
 	}
-	cli, err := client.NewClientWithOpts(client.WithVersion("1.40"))
+	cli, err := client.NewClientWithOpts(client.WithVersion(version))
 	if err != nil {
-		fmt.Println("your docker version does not support api version 1.40, falling back to 1.25")
+		fmt.Println("your docker version does not support api version ", version, ", falling back to 1.25")
 		cli, err = client.NewClientWithOpts(client.WithVersion("1.25"))
 		if err != nil {
 			panic(err)
