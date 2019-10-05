@@ -56,7 +56,11 @@ func main() {
 	}
 	cli, err := client.NewClientWithOpts(client.WithVersion("1.40"))
 	if err != nil {
-		panic(err)
+		fmt.Println("your docker version does not support api version 1.40, falling back to 1.25")
+		cli, err = client.NewClientWithOpts(client.WithVersion("1.25"))
+		if err != nil {
+			panic(err)
+		}
 	}
 	if networks {
 		pruneNetworks(cli)
