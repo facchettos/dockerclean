@@ -9,5 +9,12 @@ usage
 
 dockerclean ''|all|networks (empty defaults to images)
 
+installation
+---
+you need to have go installed.
 
+then run
 
+```bash
+go build
+```
